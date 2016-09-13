@@ -1,0 +1,1 @@
+g++ -ggdb -O2 -shared mathF.cpp -o libmathF.dll
