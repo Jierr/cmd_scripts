@@ -63,7 +63,7 @@ if %nday% GTR %day% (
 	if %nday% LSS 1 (
 		set /a nmonth-=1
 		set /a "pos=%nmonth%-1"
-		if %pos% LSS 1 set /a pos=12
+		if %pos% LSS 0 set /a pos=11
 		set /a "pos=%pos%*3"
 		set /a "nday=!days_in_month:~%pos%,2!"
 		if %nmonth% EQU 2 if notleap EQU 0 set /a "nday+=1"
