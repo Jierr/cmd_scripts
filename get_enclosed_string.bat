@@ -11,6 +11,7 @@ set epos=epos
 
 call find_substring %spos% "%string%" "%start%"
 call find_substring %epos% "!string:~%spos%!" "%end%"
+set /a epos=%spos%+%epos%
 
 if %spos% LSS 0 goto end_get_enclosed_string
 set sub=0
