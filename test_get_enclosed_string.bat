@@ -59,3 +59,12 @@ set "end=<///end//<yx>"
 call get_enclosed_string %sub% "%string%" "%start%" "%end%"
 echo Search: "%string%"
 echo The enclosed String is "%sub%"
+
+set sub=sub
+set "string=(UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien"
+set "start=("
+set "end=)"
+call get_enclosed_string %sub% "%string%" "%start%" "%end%"
+echo Search: "%string%"
+echo The enclosed String is "%sub%"
+
