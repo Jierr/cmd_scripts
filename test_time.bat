@@ -35,3 +35,5 @@ echo %std_time%
 set std_time=std_time
 call get_time_of_timezone %std_time% "UTC-12:00"
 echo %std_time%
+
+:end

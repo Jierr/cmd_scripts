@@ -13,9 +13,7 @@ rem echo Timezone=%timezone%
 set prev=
 
 for /f "tokens=* delims=" %%a in ('tzutil /l') do (
-	set curr=curr
-	call find_substring !curr! "%%a" "%timezone%"
-	if !curr! GEQ 0 (
+	if "%%a" EQU "%timezone%" (
 		set "timezone=!prev!"
 		if "%2." NEQ "." if "%~2" EQU "true" goto postprocess
 		goto done
@@ -24,7 +22,6 @@ for /f "tokens=* delims=" %%a in ('tzutil /l') do (
 )
 
 :postprocess
-rem echo Timezone=%timezone%
 call get_enclosed_string  %utc% "%timezone%" "(" ")"
 set timezone=%utc%
 

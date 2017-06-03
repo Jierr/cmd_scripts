@@ -1,5 +1,6 @@
 REM Usage: call get_time_of_timezone "<timezone>"
 REM <timezone>: UTC[+-]hh:mm
+REM return "yyyy-mm-dd hh:mm:ss"
 :get_time_of_timezone
 setlocal enabledelayedexpansion
 
