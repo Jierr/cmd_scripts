@@ -1,7 +1,11 @@
 @echo off
+
 set hex=hex
-set int=%~1
+set "int=%~1"
+set digits=
+if "%2." NEQ "." set digits=%~2
 
-call int_to_hex %hex% "%int%"
+echo Mindestens %digits% Ziffern.
+call int_to_hex %hex% "%int%" "%digits%"
 
-echo int: "%int%", hex: "%hex%"
+echo int: "%int%" , hex: "%hex%" 
