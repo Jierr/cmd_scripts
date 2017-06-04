@@ -10,7 +10,7 @@ for /f "tokens=* delims=" %%a in ('tzutil /g') do (
 )
 
 rem echo Timezone=%timezone%
-set prev=
+set "prev=^(UTC+00:00^)"
 
 for /f "tokens=* delims=" %%a in ('tzutil /l') do (
 	if "%%a" EQU "%timezone%" (
@@ -18,7 +18,7 @@ for /f "tokens=* delims=" %%a in ('tzutil /l') do (
 		if "%2." NEQ "." if "%~2" EQU "true" goto postprocess
 		goto done
 	)
-	set prev=%%a
+	set "prev=%%a"
 )
 
 :postprocess
