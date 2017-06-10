@@ -35,6 +35,13 @@ set /a "target_offset=%target_offset%-%current_offset%"
 call get_time "%ms%" "%sec%" "%min%" "%hr%"
 call get_date "%day%" "%month%" "%year%"
 
+if "%ms:~0,1%" EQU "0" set /a "ms=%ms:~1,1%"
+if "%sec:~0,1%" EQU "0" set /a "sec=%sec:~1,1%"
+if "%min:~0,1%" EQU "0" set /a "min=%min:~1,1%"
+if "%hr:~0,1%" EQU "0" set /a "hr=%hr:~1,1%"
+if "%day:~0,1%" EQU "0" set /a "day=%day:~1,1%"
+if "%month:~0,1%" EQU "0" set /a "month=%month:~1,1%"
+
 set /a "nmin=%min%+%target_offset%"
 set /a "nhr=%nmin%/60+%hr%
 set /a "nmin=%nmin%%%60"
