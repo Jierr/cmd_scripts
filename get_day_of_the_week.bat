@@ -1,4 +1,6 @@
-:get_time_of_timezone
+REM Usage: call get_time_of_timezone "<set result=result> <day> <month> <year>"
+REM return Day of the week (sunday=0)
+:get_day_of_the_week
 setlocal enabledelayedexpansion
 
 set day=%~2
