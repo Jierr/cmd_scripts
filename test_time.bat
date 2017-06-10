@@ -15,6 +15,9 @@ call get_timezone %timezone% true
 call utc2minute_offset %zoffset% "%timezone%"
 echo Timezone = %timezone%, offset = %zoffset%
 echo %day%.%month%.%year% -- %hr%:%min%:%sec%:%ms%
+set dow=dow
+call get_day_of_the_week %dow% "%day%" "%month%" "%year%"
+echo Day of the week "%dow%"
 
 set "timezone=UTC-12:45"
 set zoffset=zoffset
