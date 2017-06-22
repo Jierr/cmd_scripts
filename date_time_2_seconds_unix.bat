@@ -1,12 +1,12 @@
 rem usage: call date_time_2_seconds <seconds=seconds> "yyyy-mm-dd hh:mm:ss"
-rem This function will only work till Tue, 19 Jan 2068
+rem This function will only work till Tue, 19 Jan 2038 03:14:07 +0000 
 :date_time_2_seconds
 setlocal enabledelayedexpansion
 
 set "days_in_month=31 28 31 30 31 30 31 31 30 31 30 31"
 set date_time=%~2
 
-set syear=2000
+set syear=1970
 set "year=%date_time:~0,4%"
 set "month=%date_time:~5,2%"
 set "day=%date_time:~8,2%"
@@ -40,10 +40,10 @@ for /l %%m in (0,1,%end%) do (
 )
 
 
-set /a "y=%year%-%syear%"
-set /a "_seconds_+=%y%*365*24*60*60"
+set /a "yunix=%year%-%syear%"
+set /a "_seconds_+=%yunix%*365*24*60*60"
 
-set /a "leap_years=%y%/4"
+set /a "leap_years=(%yunix%+2)/4"
 set /a "_seconds_+=%leap_years%*24*60*60"
 
 :done
