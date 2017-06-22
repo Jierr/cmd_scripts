@@ -89,12 +89,14 @@ if %nmonth% GTR 12 (
 	)
 )
 
+set /a "sec=%sec%"
 set /a "min=%nmin%"
 set /a "hr=%nhr%"
 set /a "day=%nday%"
 set /a "month=%nmonth%"
 set /a "year=%nyear%"
 
+if "%sec:~1,1%"=="" set "sec=0%sec%"
 if "%min:~1,1%"=="" set "min=0%min%"
 if "%hr:~1,1%"=="" set "hr=0%hr%"
 if "%day:~1,1%"=="" set "day=0%day%"

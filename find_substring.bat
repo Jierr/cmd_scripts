@@ -7,18 +7,19 @@ set start=0
 set pos=0
 set curr_pos=0
 
-:search
-if "!str:~%pos%,1!"=="" goto done 
-set s=0
-set curr_pos=!pos!
-:sub
-if "!sub:~%s%,1!"=="" goto equal
-if "!str:~%curr_pos%,1!" == "" goto done
-if "!str:~%curr_pos%,1!" == "!sub:~%s%,1!" (
-	set /a s+=1
-	set /a curr_pos+=1
-	goto sub
+set /a len=0
+
+:setlen
+if "!sub:~%len%!." NEQ "." (
+	set /a "len=%len%+1"
+	goto setlen
 )
+rem echo length of "%sub%" is %len%
+
+:search
+:sub
+if "!str:~%pos%,1!" == "" goto done
+if "%sub%"=="!str:~%pos%,%len%!" goto equal
 :notequal
 set /a pos+=1
 goto search
